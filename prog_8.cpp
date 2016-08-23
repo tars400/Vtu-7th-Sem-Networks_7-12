@@ -1,0 +1,51 @@
+#include<iostream> 
+#include<stdio.h>
+using namespace std;
+struct node // C1: define structure
+{
+    int dist[20];
+    int from[20];
+ }rt[10]; // C2: structure variable
+int main()
+{
+    int dm[20][20]; 
+    int i,j,k,n,src,dest,count=0;
+    cout<<"enter no of nodes:"<<endl;
+    cin>>n;
+    cout<<"Enter distance matrix:"<<endl;
+    for(i=0;i<n;i++) // C3: input matrix
+        for(j=0;j<n;j++)
+        {
+            cin>>dm[i][j];
+            dm[i][i]=0;
+            rt[i].dist[j]=dm[i][j]; // C4: node allocations
+            rt[i].from[j]=j;
+        }
+    do
+    {
+        count=0;
+        for(i=0;i<n;i++)
+            for(j=0;j<n;j++)
+                for(k=0;k<n;k++)
+                     if((rt[i].dist[j])>(dm[i][k]+rt[k].dist[j])) // C5: check & calculate minumum distance between each node
+                    {
+                        rt[i].dist[j]=rt[i].dist[k]+rt[k].dist[j];
+                        rt[i].from[j]=k;
+                        count++;
+                    }
+    }while(count!=0);
+    
+    for(i=0;i<n;i++) // C6: Display the shortest path calculated between the nodes
+    {
+        cout<<"Router info for router "<<i+1<<endl;
+        printf("Dest\tNext Hop\tDist\n");
+        for(j=0;j<n;j++)
+            printf("%d\t%d\t\t%d\n",j+1,rt[i].from[j]+1,rt[i].dist[j]);
+    }
+    /*the following part of code was added by boo. it wasnt accepting soure node or destination node at all. i edited the code and executed it :P delete it if you dont want it */
+    cout<<"\n enter source and destination:";
+    cin>>src>>dest;
+    src--;dest--;
+    printf("shortest path:\n via router:%d\n shortest distance:%d\n",rt[src].from[dest]+1,rt[src].dist[dest]);
+return 0;
+}
