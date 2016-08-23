@@ -19,7 +19,7 @@ void crc() {
   }while(e<=a+N-1);
 }
 void main() {
-  //clrscr(); 
+  
   printf("\nEnter poly : "); scanf("%s",t);
   printf("\nGenerating Polynomial is : %s",g);
   a=strlen(t);
@@ -41,5 +41,5 @@ void main() {
   for (e=0;(e<N-1)&&(cs[e]!='1');e++);
   if(e<N-1) printf("Error detected.\n");
   else printf("No Error Detected.\n");
-  //getch();
+
 }
