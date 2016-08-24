@@ -26,7 +26,6 @@
         }
         close(req);
         close(res); 
-        //unlink("req.fifo");
-        //unlink("res.fifo");
+        
         return 0;
     }
