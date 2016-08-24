@@ -13,16 +13,12 @@ int main()
   int s,n;
   struct sockaddr_in address;
 
-  // sockaddr_in is used for ip manipulation
   address.sin_family=AF_INET;
 
-  // default family address
   address.sin_port=htons(15000);
 
-  // port through which IPC is established
   address.sin_addr.s_addr=INADDR_ANY;
 
-  // any address can be asssigned to the client
   if((s=socket(AF_INET,SOCK_STREAM,0))<0) 
   {
 
@@ -31,7 +27,6 @@ int main()
     connect(s,(struct sockaddr*)&address,sizeof(address)); 
   }
 
-  // connect - initiate a connection on a socket
   printf("enter file name:\n");
   scanf("%s",fname);
   printf("sending request..\n");
@@ -44,10 +39,8 @@ int main()
 
   // recv() used to receive messages from a socket, and may be used to 
   // receive data on a socket whether or not it is connection-oriented. 
-  // Returns a file descriptor
     write(1,buffer,n); 
   }
 
-  // send a message to another user
   return 0;
 }
