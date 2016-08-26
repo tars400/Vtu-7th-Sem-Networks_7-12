@@ -17,21 +17,21 @@ int main()
             len = strlen(text);
          do
             {
-                    p = rand()%30;// generate prime p
+                    p = rand()%30;
             }while(!prime(p));
          do
             {
-                    q = rand()%30;  // generate prime number q
+                    q = rand()%30;  
             }while(!prime(q));
-            n=p*q;              //compute n and Φ
+            n=p*q;              
             phi=(p-1)*(q-1);
          do
             {
-                    e = rand()%phi; //compute E
+                    e = rand()%phi; 
             }while(gcd(e,phi)!=1);
          do
             {
-                    d = rand()%phi; //compute d
+                    d = rand()%phi; 
             }while(((d*e)%phi)!=1);
 
 
