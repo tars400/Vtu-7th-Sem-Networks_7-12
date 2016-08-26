@@ -25,7 +25,7 @@ int main()
 	    {
 	
 	     if( (packet_sz[i] + p_sz_rm) > b_size)
-	      if(packet_sz[i] > b_size)/*compare the packet siz with bucket size*/
+	      if(packet_sz[i] > b_size)
 	        printf("\n\nIncomming packet size (%dbytes) is Greater than bucket capacity (%dbytes)-PACKET REJECTED",packet_sz[i],b_size);
 	      else
 	        printf("\n\nBucket capacity exceeded-PACKETS REJECTED!!");
@@ -46,7 +46,7 @@ int main()
 	
  	          if(p_sz_rm)
  	          {
-		            if(p_sz_rm <= o_rate)/*packet size remaining comparing with output rate*/
+		            if(p_sz_rm <= o_rate)
 		              op = p_sz_rm,p_sz_rm = 0;
 	
 		            else
