@@ -1,7 +1,5 @@
 #include<stdio.h>
 #include<fcntl.h>
-
-// included for file handling using write()
 #include<unistd.h>
 
 // included to access inet_addr,socket(), send(), recv() method
