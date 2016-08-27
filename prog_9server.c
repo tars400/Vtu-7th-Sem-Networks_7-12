@@ -1,8 +1,6 @@
 #include<stdio.h>
 #include<fcntl.h> 
-//included for file handling using write(), read(), open() methods
 #include<unistd.h>
-
 // included to access inet_addr(), bind(), socket(), send(), recv(), accept() method
 #include<arpa/inet.h>
 
@@ -25,9 +23,7 @@ int main()
 
   source=accept(s,(struct sockaddr*)NULL,NULL);
 
-  // accept a connection
   recv(source,fname,sizeof(fname),0);
-
   // receive a message from the client
   printf("request for file %s\n", fname);
   file=open(fname,O_RDONLY);
