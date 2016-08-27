@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<fcntl.h>
 #include<unistd.h>
-
 // included to access inet_addr,socket(), send(), recv() method
 #include<arpa/inet.h>
 
@@ -35,8 +34,8 @@ int main()
   while((n=recv(s,buffer,sizeof(buffer),0))>0) 
   {
 
-  // recv() used to receive messages from a socket, and may be used to 
-  // receive data on a socket whether or not it is connection-oriented. 
+  /*recv() used to receive messages from a socket, and may be used to 
+   receive data on a socket whether or not it is connection-oriented.*/ 
     write(1,buffer,n); 
   }
 
